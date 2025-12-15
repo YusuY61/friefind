@@ -21,7 +21,10 @@ public class Main {
      
     
      User.displayTotalUserCount(); 
+     
+     Location l1 = new Location("ankara", 20.5, 30.4);
 
+     app.setMeeting(u1, u2, l1);
     
      app.displayAllUsers();
 

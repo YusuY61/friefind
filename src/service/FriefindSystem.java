@@ -42,7 +42,42 @@ public class FriefindSystem {
         }
     }
 
- 
+    public void setMeeting(User U1,User U2, Location location) {
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        Activity activity = new Activity();
+
+        
+        activity.getInput(); 
+
+        System.out.print("Enter meeting time (e.g., 09/09/2025): ");
+        String time = scanner.nextLine();
+        Meeting meeting = new Meeting(U1, U2, activity, location, time);
+
+      
+        System.out.println("\n--- Meeting Created Successfully ---");
+        System.out.println(meeting.toString()); 
+
+       
+        System.out.print("\nDo you want to change the time? (Y/N): ");
+        String choice = scanner.nextLine();
+
+        if (choice.equalsIgnoreCase("Y")) {
+            System.out.print("Enter new time: ");
+            String newTime = scanner.nextLine();
+            
+        
+            meeting.activity.setTime(newTime);
+            
+            System.out.println("\nTime updated.");
+            System.out.println("Updated Meeting Details:");
+            System.out.println(meeting.toString());
+        } else {
+            System.out.println("Meeting confirmed.");
+        }
+        return meeting;
+    }
     public User searchUser(String name) {
         for (User u : userList) {
             if (u.getName().equalsIgnoreCase(name)) {
